@@ -1,13 +1,29 @@
 type NavProps = {
+  view: "users" | "posts" | "comments";
   handleView: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-const Nav = ({ handleView }: NavProps) => {
+const Nav = ({ view, handleView }: NavProps) => {
   return (
     <nav>
-      <button onClick={handleView}>users</button>
-      <button onClick={handleView}>posts</button>
-      <button onClick={handleView}>comments</button>
+      <button
+        onClick={handleView}
+        className={view === "users" ? "selected" : ""}
+      >
+        users
+      </button>
+      <button
+        onClick={handleView}
+        className={view === "posts" ? "selected" : ""}
+      >
+        posts
+      </button>
+      <button
+        onClick={handleView}
+        className={view === "comments" ? "selected" : ""}
+      >
+        comments
+      </button>
     </nav>
   );
 };

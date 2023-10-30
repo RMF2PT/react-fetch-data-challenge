@@ -1,39 +1,23 @@
-type User = {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-  };
-};
+import Table from "./Table";
 
-type Post = {
-  userId: number;
+type DataItem = {
   id: number;
-  title: string;
-  body: string;
-};
-
-type Comment = {
-  postId: number;
-  id: number;
-  name: string;
-  email: string;
-  body: string;
 };
 
 type ContentProps = {
-  data: User[] | Post[] | Comment[];
+  data: DataItem[];
 };
 
 const Content = ({ data }: ContentProps) => {
   return (
-    <ul>
-      {data.map((dataItem) => (
-        <li key={dataItem.id}>{JSON.stringify(dataItem)}</li>
-      ))}
-    </ul>
+    <>
+      {/* <ul>
+        {data.map((dataItem) => (
+          <li key={dataItem.id}>{JSON.stringify(dataItem)}</li>
+        ))}
+      </ul> */}
+      <Table data={data} />
+    </>
   );
 };
 export default Content;
